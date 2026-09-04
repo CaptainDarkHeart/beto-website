@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About">
+  <section class="about">
+    <h1>About</h1>
+    <p>
+      Beto Ruiz Alonso is a Berlin-based photographer specializing in
+      portrait, fashion, and event photography.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .about {
+    padding: 0 64px 96px;
+    max-width: 56ch;
+  }
+
+  .about h1 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .about p {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 640px) {
+    .about {
+      padding: 0 24px 56px;
+    }
+  }
+</style>
