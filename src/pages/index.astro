@@ -1,8 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Gallery from '../components/Gallery.astro';
+
+const base = '/images/events';
+const sources = [
+  `${base}/tnw-2019-day-one-9-may-19-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-119-156.jpg`,
+  `${base}/food-court-25-may-2018-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-1938-958.jpg`,
+  `${base}/friends-of-tnw-drinks-23-may-2018-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-56-284.jpg`,
+  `${base}/gashouder-25-may-2018-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-162-881.jpg`,
+  `${base}/pitch-tower-25-may-2018-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-1426-892.jpg`,
+  `${base}/tnw-2019-day-one-9-may-19-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-504-243.jpg`,
+  `${base}/food-court-25-may-2018-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-1927-750.jpg`,
+  `${base}/friends-of-tnw-drinks-23-may-2018-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-58-692.jpg`,
+  `${base}/pitch-tower-25-may-2018-image-copyright-beto-ruiz-alonso-info-betoruizalonso-com-471-830.jpg`,
+];
 ---
 
 <Layout title="Home">
-  <Gallery label="Recent" count={9} />
+  <Gallery label="Recent" sources={sources} />
 </Layout>
