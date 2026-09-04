@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Gallery from '../components/Gallery.astro';
+import IntroOverlay from '../components/IntroOverlay.astro';
 
 const base = '/images/events';
 const sources = [
@@ -17,5 +18,6 @@ const sources = [
 ---
 
 <Layout title="Home">
+  <IntroOverlay />
   <Gallery label="Recent" sources={sources} />
 </Layout>

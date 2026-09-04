@@ -1,0 +1,102 @@
+---
+---
+
+<div class="intro" data-intro>
+  <h1 class="intro__name" data-intro-name>Beto Ruiz Alonso</h1>
+  <p class="intro__line" data-intro-line>Photographer — Berlin</p>
+  <p class="intro__line" data-intro-line>Portrait — Fashion — Events</p>
+</div>
+
+<style>
+  .intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: opacity 1.4s ease;
+  }
+
+  .intro.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .intro__name {
+    opacity: 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Futura', 'Futura PT', 'Jost', 'Century Gothic', 'Avenir Next', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    transition: opacity 1.2s ease;
+  }
+
+  .intro__name.is-visible {
+    opacity: 1;
+    transition: opacity 3s ease;
+  }
+
+  .intro__line {
+    opacity: 0;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+    transition: opacity 1.2s ease;
+  }
+
+  .intro__line.is-visible {
+    opacity: 1;
+  }
+</style>
+
+<style is:global>
+  body.intro-lock {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  const intro = document.querySelector<HTMLElement>('[data-intro]');
+  const name = document.querySelector<HTMLElement>('[data-intro-name]');
+  const lines = document.querySelectorAll<HTMLElement>('[data-intro-line]');
+
+  if (intro && name && lines.length) {
+    document.body.classList.add('intro-lock');
+
+    const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+    const [line1, line2] = Array.from(lines);
+
+    (async () => {
+      await wait(400);
+      name.classList.add('is-visible');
+      await wait(2600);
+      line1.classList.add('is-visible');
+      await wait(2200);
+      line2.classList.add('is-visible');
+      await wait(1800);
+
+      line1.classList.remove('is-visible');
+      await wait(800);
+      line2.classList.remove('is-visible');
+      await wait(800);
+      name.classList.remove('is-visible');
+      await wait(1200);
+
+      intro.classList.add('is-hidden');
+      document.body.classList.remove('intro-lock');
+      await wait(1400);
+      intro.remove();
+    })();
+  }
+</script>
