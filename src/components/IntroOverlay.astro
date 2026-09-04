@@ -70,7 +70,13 @@
   const name = document.querySelector<HTMLElement>('[data-intro-name]');
   const lines = document.querySelectorAll<HTMLElement>('[data-intro-line]');
 
-  if (intro && name && lines.length) {
+  const seenKey = 'beto-intro-seen';
+  const alreadySeen = sessionStorage.getItem(seenKey) === '1';
+
+  if (alreadySeen) {
+    intro?.remove();
+  } else if (intro && name && lines.length) {
+    sessionStorage.setItem(seenKey, '1');
     document.body.classList.add('intro-lock');
 
     const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
